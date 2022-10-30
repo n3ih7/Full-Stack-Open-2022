@@ -1,0 +1,19 @@
+title 0.6: New note
+
+note over Browser:
+assemble request payload (JSON body)\n{"content":"<user_input_text>","date":"2022-10-30T06:10:29.956Z"}
+end note
+note over Browser:
+push request payload (JSON body) to global varible notes
+end note
+note over Browser:
+set input[name="note"] as empty string
+end note
+note over Browser:
+call redrawNotes() to rerender the content based on updated notes
+end note
+Browser->Server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+Server-->Browser: status code 201 Created, along with JSON body {message: "note created"}
+note over Browser:
+console.log the received JSON content as text
+end note
